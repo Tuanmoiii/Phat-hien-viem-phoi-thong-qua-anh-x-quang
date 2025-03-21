@@ -85,7 +85,6 @@ model = build_model(base_model)
 <br>
     <h2>Bước 8: Huấn luyện mô hình</h2>
     <p>Sử dụng lệnh sau để huấn luyện mô hình DenseNet121:</p>
-     <pre><code>
     early_stop = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=3, verbose=1, min_lr=1e-7)
 
@@ -95,7 +94,6 @@ history = model.fit(
     epochs=20,
     callbacks=[early_stop, reduce_lr]
 )
-    </code></pre>
 
     <h2>Bước 9: Thiết lập cấu hình Grad-Cam cho mô hình</h2>
 
