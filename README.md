@@ -1,4 +1,4 @@
-<h1 align="center">NHẬN DIỆN HÀNH VI CỦA SINH VIÊN TRONG LỚP HỌC </h1>
+<h1 align="center">PHÁT HIỆN BỆNH VIÊM PHỔI THÔNG QUA ẢNH CHỤP X-QUANG</h1>
 
 <div align="center">
 
@@ -12,18 +12,16 @@
 [![DaiNam University](https://img.shields.io/badge/DaiNam%20University-red?style=for-the-badge)](https://dainam.edu.vn)
 </div>
 
-<h2 align="center">Sử Dụng Yolov7 Để Nhận Diện Hành Vi Của Sinh Viên</h2>
+<h2 align="center">Sử dụng mô hình DenseNet121 phát hiện bệnh viêm phổi qua ảnh x-quang</h2>
 
 <p align="left">
-  Nhận diện hành vi học sinh trong lớp học sử dụng YOLOv7 là ứng dụng công nghệ AI để phát hiện hành vi như giơ tay, sử dụng điện thoại. YOLOv7 giúp nhận diện đối tượng trong ảnh/video theo thời gian thực, hỗ trợ giáo viên quản lý lớp học hiệu quả hơn. Công nghệ này giúp tăng cường sự tương tác và giám sát, nâng cao chất lượng dạy và học.
-
-
+Sử dụng DenseNet121 phát hiện bệnh viêm phổi qua ảnh x-quang là ứng dụng của AI trong lĩnh vực y tế. DenseNet121 được ứng dụng rộng rãi trong phân loại ảnh y tế, giúp đưa ra phán đoán về tỷ lệ mắc bệnh viêm phổi một cách nhanh và chính xác. Việc vận tốt dụng mô hình này giúp giảm thiểu chi phí khám chữa bệnh, nhanh chóng xác nhận được tình trạng bệnh
 </p>
 
 ---
 
 ## 🌟 Giới thiệu
--Khi học sinh thực hiện các hành động Yolov7 sẽ nhanh chóng biết được hành động của học sinh đó là gì
+-Khi đưa dữ liệu ảnh x-quang vào mô hình sẽ trả về kết quả dự đoán người đó có mắc bệnh viêm phổi không
 <br>
 -Chắc chắn rằng không thể nào đúng được 100% và cũng vẫn sẽ có lỗi xảy ra
 ---
