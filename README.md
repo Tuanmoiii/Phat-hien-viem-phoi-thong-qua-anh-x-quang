@@ -54,10 +54,10 @@ or
 
 
  <h2>Bước 1: Thu thập dữ liệu</h2>
-    <p>Thu thập dữ liệu video hoặc hình ảnh hành vi học sinh từ nguồn được quay bằng điện thoại.</p>
+    <p>Thu thập dữ liệu các hình ảnh x-quang ngực từ các bệnh viện</p>
     <h2>Bước 2: Gán nhãn dữ liệu</h2>
-    <p>Đánh dấu các đối tượng và hành vi (ví dụ: giơ tay, sử dụng điện thoại, v.v.) trong dữ liệu. Sử dụng dataset của bạn và của người khác nếu cần.</p>
-   <p>Dataset </p> <a href="https://universe.roboflow.com/ttnt-nyz2m/ai-fxy4m/dataset/2" target="_blank">Tại Đây</a> 
+    <p>Chia dữ liệu ra làm 2 lớp Normal và Pneumonia</p>
+   <p>Dataset </p> <a href="https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia" target="_blank">Tại Đây</a> 
     <h2>Bước 3: Upload file lên Google Drive</h2>
     <p>Để tải dữ liệu lên Google Drive, bạn có thể sử dụng giao diện web hoặc API.</p>
     <h2>Bước 4: Vào Colab để Train</h2>
