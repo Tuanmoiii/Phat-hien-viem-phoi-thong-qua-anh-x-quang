@@ -95,9 +95,9 @@ history = model.fit(
     epochs=20,
     callbacks=[early_stop, reduce_lr])
 ```
-    <h2>Bước 9: Thiết lập cấu hình Grad-Cam cho mô hình</h2>
 
-<p>Sử dụng lệnh sau để thiết lập cấu hình Grad-Cam:<p>
+    <h2>Bước 9: Thiết lập cấu hình Grad-Cam cho mô hình</h2>
+    <p>Sử dụng lệnh sau để thiết lập cấu hình Grad-Cam:<p>
 
 ```bash
 def grad_cam(model, img_array, layer_name):
