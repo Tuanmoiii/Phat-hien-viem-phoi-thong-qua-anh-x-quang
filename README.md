@@ -25,12 +25,6 @@ Sử dụng DenseNet121 phát hiện bệnh viêm phổi qua ảnh x-quang là �
 <br>
 -Chắc chắn rằng không thể nào đúng được 100% và cũng vẫn sẽ có lỗi xảy ra
 ---
-## 🏗️ HỆ THỐNG
-<p align="center">
-  <img src="./anhimage/cbyolov7" alt="System Architecture" width="800"/>
-</p>
-
----
 
 
 ## 🛠️ CÔNG NGHỆ SỬ DỤNG
@@ -38,7 +32,7 @@ Sử dụng DenseNet121 phát hiện bệnh viêm phổi qua ảnh x-quang là �
 <div align="center">
 
 <p align="center">
-  <img src="./anhimage/cnyolov7.avif" alt="System Architecture" width="800"/>
+  <img src="anh1.png" alt="System Architecture" width="800"/>
 </p>
 </div>
 
