@@ -93,8 +93,7 @@ history = model.fit(
     train_generator,
     validation_data=val_generator,
     epochs=20,
-    callbacks=[early_stop, reduce_lr]
-)
+    callbacks=[early_stop, reduce_lr])
 ```
     <h2>Bước 9: Thiết lập cấu hình Grad-Cam cho mô hình</h2>
 
