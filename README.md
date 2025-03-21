@@ -159,4 +159,4 @@ Dự án được phát triển bởi 3 thành viên:
 | Hà Tiến Đạt             | Hỗ trợ bài tập lớn.|
 | Nguyễn Văn Bảo Ngọc    | Hỗ trợ bài tập lớn.  |
 
-© 2025 NHÓM 5, CNTT 17-15, TRƯỜNG ĐẠI HỌC ĐẠI NAM
+© 2025 NHÓM 6, CNTT 17-15, TRƯỜNG ĐẠI HỌC ĐẠI NAM
