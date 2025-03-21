@@ -115,24 +115,43 @@ def grad_cam(model, img_array, layer_name):
     return heatmap.numpy()
 ```
 
-  ##  Bước 10: Nhận diện hành vi qua video</h2>
+  ##  Bước 10: Phát hiện ảnh viêm phổi qua ảnh chụp x-quang</h2>
   
-Chạy mô hình YOLOv7 để nhận diện hành vi trong video
+Chạy mô hình DenseNet121 để phát hiện bệnh viêm phổi qua ảnh chụp x-quang
     
 ```bash
-  import subprocess
-  cmd = ["python3", "/content/yolov7/detect.py", 
-        "--weights", "/content/drive/MyDrive/BTL_AII/Yolo7_BTL/weights/best.pt", 
-       "--source", "/content/drive/MyDrive/Capcut/1.MOV", 
-       "--img-size", "640", 
-       "--conf-thres", "0.1", 
-       "--save-txt", "--save-conf", 
-       "--project", "chạy/phát hiện", 
-       "--name", "detect_output", 
-       "--exist-ok"]
-result = subprocess.run(cmd, capture_output=True, text=True)
-print(result.stdout)
-print(result.stderr)
+def display_gradcam_for_all_images(test_folder, model, layer_name='conv5_block16_concat'):
+    for class_name in os.listdir(test_folder):
+        class_path = os.path.join(test_folder, class_name)
+        if os.path.isdir(class_path):
+            for img_name in os.listdir(class_path):
+                img_path = os.path.join(class_path, img_name)
+                img = cv2.imread(img_path)
+                if img is None:
+                    continue
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                img_resized = cv2.resize(img, (224, 224))
+                img_array = np.expand_dims(img_resized, axis=0) / 255.0
+
+                heatmap = grad_cam(model, img_array, layer_name)
+                heatmap = cv2.resize(heatmap, (img.shape[1], img.shape[0]))
+                heatmap = np.uint8(255 * heatmap)
+                heatmap = cv2.applyColorMap(heatmap, cv2.COLORMAP_JET)
+                superimposed_img = cv2.addWeighted(img, 0.6, heatmap, 0.4, 0)
+
+                pred = model.predict(img_array)[0][0]
+
+                plt.figure(figsize=(10, 5))
+                plt.subplot(1, 2, 1)
+                plt.imshow(img)
+                plt.title("Original Image")
+                plt.axis("off")
+
+                plt.subplot(1, 2, 2)
+                plt.imshow(superimposed_img)
+                plt.title(f"Grad-CAM - Prediction: {pred:.2%} Pneumonia")
+                plt.axis("off")
+                plt.show()
 ```
 
 
@@ -146,4 +165,4 @@ Dự án được phát triển bởi 3 thành viên:
 | Hà Tiến Đạt             | Hỗ trợ bài tập lớn.|
 | Nguyễn Văn Bảo Ngọc    | Hỗ trợ bài tập lớn.  |
 
-© 2025 NHÓM 7, CNTT 17-15, TRƯỜNG ĐẠI HỌC ĐẠI NAM
+© 2025 NHÓM 5, CNTT 17-15, TRƯỜNG ĐẠI HỌC ĐẠI NAM
