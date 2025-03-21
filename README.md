@@ -76,11 +76,12 @@ drive.mount('/content/drive')</code></pre>
 !pip install matplotlib
 </code></pre>
 <br>
-    <h2>Bước 7: Tải mã nguồn YOLOv7</h2>
-    <p>Tải mã nguồn YOLOv7 từ GitHub và chuyển đến thư mục tương ứng:</p>
-    
-    !git clone https://github.com/WongKinYiu/yolov7.git
-    %cd yolov7
+    <h2>Bước 7: Lựa chọn mô hình DenseNet121</h2>
+    <p>Chọn mô hình DenseNet làm mô hình nền tảng</p>
+    <pre><code>
+    base_model = DenseNet121(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+model = build_model(base_model)
+    </code></pre>
 <br>
     <h2>Bước 8: Tải trọng số YOLOv7</h2>
     <p>Tải trọng số YOLOv7 từ GitHub và lưu vào thư mục thích hợp:</p>
@@ -133,8 +134,8 @@ Dự án được phát triển bởi 3 thành viên:
 
 | Họ và Tên                | Vai trò                  |
 |--------------------------|--------------------------|
-| Trần Anh Tú              | Phát triển toàn bộ mã nguồn,kiểm thử, triển khai dự án và thực hiện video giới thiệu,biên                              soạn tài liệu Overleaf ,Powerpoint, thuyết trình, đề xuất cải tiến.|
-| Trần Thế Lộc             | Hỗ trợ bài tập lớn.|
-| Phạm Đình Minh Trưởng    | Hỗ trợ bài tập lớn.  |
+| Bùi Quang Tuấn              | Phát triển toàn bộ mã nguồn,kiểm thử, triển khai dự án và thực hiện video giới thiệu,biên                              soạn tài liệu Overleaf ,Powerpoint, thuyết trình, đề xuất cải tiến.|
+| Hà Tiến Đạt             | Hỗ trợ bài tập lớn.|
+| Nguyễn Văn Bảo Ngọc    | Hỗ trợ bài tập lớn.  |
 
 © 2025 NHÓM 7, CNTT 17-15, TRƯỜNG ĐẠI HỌC ĐẠI NAM
