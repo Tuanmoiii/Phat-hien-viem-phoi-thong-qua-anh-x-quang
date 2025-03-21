@@ -83,28 +83,36 @@ drive.mount('/content/drive')</code></pre>
 model = build_model(base_model)
     </code></pre>
 <br>
-    <h2>Bước 8: Tải trọng số YOLOv7</h2>
-    <p>Tải trọng số YOLOv7 từ GitHub và lưu vào thư mục thích hợp:</p>
-    
-    !wget https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt -P /content/SCB-dataset/yolov7/
-<br>
-    <h2>Bước 9: Huấn luyện mô hình</h2>
+    <h2>Bước 8: Huấn luyện mô hình</h2>
+    <p>Sử dụng lệnh sau để huấn luyện mô hình DenseNet121:</p>
+     <pre><code>
+    early_stop = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
+reduce_lr = ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=3, verbose=1, min_lr=1e-7)
 
-<p>Sử dụng lệnh sau để huấn luyện mô hình YOLOv7:<p>
+history = model.fit(
+    train_generator,
+    validation_data=val_generator,
+    epochs=20,
+    callbacks=[early_stop, reduce_lr]
+)
+  </code></pre>
+
+    <h2>Bước 9: Thiết lập cấu hình Grad-Cam cho mô hình</h2>
+
+<p>Sử dụng lệnh sau để thiết lập cấu hình Grad-Cam:<p>
 
 ```bash
-!python /content/yolov7/train.py \
-    --data "/content/drive/MyDrive/BTL_AII/AI.v3-ai.yolov7pytorch/data.yaml" \
-    --cfg "/content/yolov7/cfg/training/yolov7.yaml" \
-    --weights "/content/SCB-dataset/yolov7/yolov7.pt" \
-    --epochs 50 \
-    --batch-size 16 \
-    --img-size 640 \
-    --device 0 \
-    --workers 4 \
-    --cache-images \
-    --name Yolo7_BTL \
-    --project "/content/drive/MyDrive/BTL_AII"
+def grad_cam(model, img_array, layer_name):
+    grad_model = Model([model.inputs], [model.get_layer(layer_name).output, model.output])
+    with tf.GradientTape() as tape:
+        conv_output, predictions = grad_model(img_array)
+        loss = predictions[:, 0]
+    grads = tape.gradient(loss, conv_output)
+    pooled_grads = tf.reduce_mean(grads, axis=(0, 1, 2))
+    heatmap = conv_output[0] @ pooled_grads[..., tf.newaxis]
+    heatmap = tf.squeeze(heatmap)
+    heatmap = tf.maximum(heatmap, 0) / tf.math.reduce_max(heatmap)
+    return heatmap.numpy()
 ```
 
   ##  Bước 10: Nhận diện hành vi qua video</h2>
