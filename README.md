@@ -61,7 +61,7 @@ or
     <h2>Bước 3: Upload file lên Google Drive</h2>
     <p>Để tải dữ liệu lên Google Drive, bạn có thể sử dụng giao diện web hoặc API.</p>
     <h2>Bước 4: Vào Colab để Train</h2>
-    <p>Truy cập vào Google Colab để thực hiện huấn luyện mô hình YOLOv7.</p>
+    <p>Truy cập vào Google Colab để thực hiện huấn luyện mô hình DenseNet121.</p>
     <h2>Bước 5: Liên kết Colab với Google Drive</h2>
     <p>Trong Google Colab, sử dụng lệnh sau để gắn kết Google Drive:</p>
     <pre><code>from google.colab import drive
@@ -70,10 +70,11 @@ drive.mount('/content/drive')</code></pre>
     <p>Sử dụng các lệnh sau để cài đặt các thư viện cần thiết:</p>
     <pre><code>
       
-!pip install torch torchvision
-!pip install matplotlib
+!pip install tensorflow
+!pip install numpy
 !pip install opencv-python
-!pip install wandb</code></pre>
+!pip install matplotlib
+</code></pre>
 <br>
     <h2>Bước 7: Tải mã nguồn YOLOv7</h2>
     <p>Tải mã nguồn YOLOv7 từ GitHub và chuyển đến thư mục tương ứng:</p>
