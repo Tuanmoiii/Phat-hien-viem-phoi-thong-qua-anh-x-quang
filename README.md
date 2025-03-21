@@ -95,7 +95,7 @@ history = model.fit(
     epochs=20,
     callbacks=[early_stop, reduce_lr]
 )
-  </code></pre>
+    </code></pre>
 
     <h2>Bước 9: Thiết lập cấu hình Grad-Cam cho mô hình</h2>
 
